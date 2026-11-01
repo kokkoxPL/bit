@@ -1,0 +1,93 @@
+.calendar {
+	display: grid;
+	grid-template-columns: 110px repeat(7, 1fr);
+	user-select: none;
+	touch-action: none;
+	justify-content: center;
+}
+
+.calendar.selectable {
+	user-select: none;
+}
+
+.calendar-day {
+	text-align: center;
+	font-weight: bold;
+	padding: 0 10px;
+	font-size: 16px;
+}
+
+.calendar-time {
+	font-size: 12px;
+	text-align: right;
+	padding-right: 6px;
+}
+
+.calendar-cell {
+	height: 24px;
+	border: 1px solid #ddd;
+	position: relative;
+	overflow: hidden;
+}
+
+.calendar.selectable .calendar-cell {
+	cursor: grab;
+}
+.calendar.selectable .calendar-cell:hover:active {
+	cursor: grabbing;
+}
+
+.calendar-cell.selected {
+	background: #3b82f6;
+}
+.calendar-cell.selected:hover {
+	cursor: grabbing;
+}
+
+.calendar-cell.blocked {
+	background: repeating-linear-gradient(45deg, rgb(218 118 128 / 0.5) 0 4px, transparent 4px 8px);
+	cursor: pointer;
+}
+
+.calendar.selectable .calendar-cell.blocked {
+	background: repeating-linear-gradient(45deg, rgb(128 128 128 / 0.35) 0 4px, transparent 4px 8px);
+	cursor: not-allowed;
+}
+.calendar-cell-title {
+	display: block;
+	font-size: 14px;
+	line-height: 22px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	pointer-events: none;
+}
+
+.calendar-nav {
+	display: flex;
+	justify-content: center;
+	gap: 8px;
+	margin: 8px;
+}
+
+.calendar-dialog {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.button-delete,
+.button-delete:hover {
+	background-color: red;
+}
+
+.busy {
+	font-size: 12px;
+	opacity: 0.8;
+}
+
+.busy.clash {
+	color: #ef4444;
+	font-weight: 600;
+	opacity: 1;
+}
